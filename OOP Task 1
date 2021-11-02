@@ -1,0 +1,249 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled1.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyP5SOPReq7K4hkgzt1eTP7e",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/NavneetSangam/OOP-Lab-Task/blob/main/OOP%20Task%201\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "hUMFPzEfSF-X",
+        "outputId": "1290f194-f999-43ff-d042-86efbba208de"
+      },
+      "source": [
+        "#problem 1\n",
+        "def leap(year):\n",
+        "  if (year % 4)==0:\n",
+        "    if (year%100)==0:\n",
+        "      if (year%400)==0:\n",
+        "        return True\n",
+        "      else:\n",
+        "        return False\n",
+        "    else:\n",
+        "      return True\n",
+        "  else:\n",
+        "    return False\n",
+        "year = int(input(\"Enter year\"))\n",
+        "c=leap(year)\n",
+        "print(c)"
+      ],
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter year2034\n",
+            "False\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6aqTHWqRU1WU",
+        "outputId": "4547a5e4-34c3-4fdc-e604-0f86e237dc36"
+      },
+      "source": [
+        "#Problem-2\n",
+        "def weird_or_not(number):\n",
+        "  if not number%2==0 or number%2 == 0 and number in range(6,21):\n",
+        "    print('Weird')\n",
+        "  else:\n",
+        "    print('Not Weird')\n",
+        "\n",
+        "number = int(input('Enter a number: '))\n",
+        "weird_or_not(number)"
+      ],
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter a number: 45\n",
+            "Weird\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-leN6HR1U5-q",
+        "outputId": "cbdcdc11-b5ee-4bf0-b0f9-e594e837d64a"
+      },
+      "source": [
+        "#Problem-3\n",
+        "def arrival_status(arrivals, person):\n",
+        "  length = len(arrivals)\n",
+        "  start = (length//2) \n",
+        "  end = length - 1\n",
+        "  for i in range(start, end):\n",
+        "    if arrivals[i] == person:\n",
+        "      return True\n",
+        "  return False\n",
+        "\n",
+        "arrivals = ['Hardik', 'Rahul', 'Virat', 'Rishabh', 'Mahi', 'Rohit', 'Rahane']\n",
+        "person=input(\"Enter the person \")\n",
+        "c=arrival_status(arrivals,person)\n",
+        "if c==True:\n",
+        "  print(\"Fashionably Late\")\n",
+        "else :\n",
+        "  print(\"Not Fashionably Late\")"
+      ],
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the person Harshit\n",
+            "Not Fashionably Late\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "78L3aa3JU6PO",
+        "outputId": "b43b3b43-df9b-4c99-f286-39884e868c6f"
+      },
+      "source": [
+        "#Problem-4\n",
+        "\n",
+        "def search_for_keyword(doc_list, keyword):\n",
+        "  req_list = []\n",
+        "  for doc in doc_list:\n",
+        "    duplicate = doc\n",
+        "    duplicate.replace(',','')\n",
+        "    duplicate.replace('.','')\n",
+        "    duplicate_list = duplicate.split()\n",
+        "    for word in duplicate_list:\n",
+        "      if word.lower() == keyword.lower():\n",
+        "        req_list.append(doc)\n",
+        "  \n",
+        "  return req_list\n",
+        "\n",
+        "doc_list = [\"The Learn Python Challenge Rohit.\", \"They bought a car\", \"bangalore\"]\n",
+        "keyword = input('Enter the keyword: ')\n",
+        "required_list = search_for_keyword(doc_list, keyword)\n",
+        "print(required_list)\n",
+        "\n",
+        "keyword = input('Enter the keyword: ')\n",
+        "required_list = search_for_keyword(doc_list, keyword)\n",
+        "print(required_list)\n",
+        "\n",
+        "keyword = input('Enter the keyword: ')\n",
+        "required_list = search_for_keyword(doc_list, keyword)\n",
+        "print(required_list)\n",
+        "\n",
+        "keyword = input('Enter the keyword: ')\n",
+        "required_list = search_for_keyword(doc_list, keyword)\n",
+        "print(required_list)"
+      ],
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the keyword: int\n",
+            "[]\n",
+            "Enter the keyword: learn\n",
+            "['The Learn Python Challenge Rohit.']\n",
+            "Enter the keyword: banglore\n",
+            "[]\n",
+            "Enter the keyword: earn\n",
+            "[]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Y4SUyQFgVEaR",
+        "outputId": "23681398-2492-4faa-8549-102a8b2dd55e"
+      },
+      "source": [
+        "#Problem-5\n",
+        "\n",
+        "# gross pay = bp+da+hra\n",
+        "# da = 40% of bp and hra = 20%of bp\n",
+        "# gp = bp + 60% of bp\n",
+        "# gp = 160%ofbp i.e. 1.6*bp\n",
+        "\n",
+        "def calc_GrossPay(basic_pay):\n",
+        "  return 1.6*basic_pay\n",
+        "\n",
+        "basic_pay = int(input('Enter the basic pay: '))\n",
+        "gross_pay = calc_GrossPay(basic_pay)\n",
+        "print(f'The gross pay is {gross_pay}')\n",
+        "\n",
+        "basic_pay = int(input('Enter the basic pay: '))\n",
+        "gross_pay = calc_GrossPay(basic_pay)\n",
+        "print(f'The gross pay is {gross_pay}')\n",
+        "\n",
+        "basic_pay = int(input('Enter the basic pay: '))\n",
+        "gross_pay = calc_GrossPay(basic_pay)\n",
+        "print(f'The gross pay is {gross_pay}')"
+      ],
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the basic pay: 900\n",
+            "The gross pay is 1440.0\n",
+            "Enter the basic pay: 8000\n",
+            "The gross pay is 12800.0\n",
+            "Enter the basic pay: 599\n",
+            "The gross pay is 958.4000000000001\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
